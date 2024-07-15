@@ -172,9 +172,6 @@ inputMiel.addEventListener("input", () => {
 
 // Fetch Post
 
-const url = "http://localhost:3000/api/products/order";
-console.log(url);
-
 const myForm = document.querySelector(".cart__order__form");
 
 btnCommander.addEventListener("click", (e) => {
