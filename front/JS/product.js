@@ -66,7 +66,7 @@ const produitCarte = async () => {
         } else {
           
           btn.addEventListener("click", () => {
-            // Si l'objet n'existe pas, 'storedData' sera 'null'
+            // Si l'objet n'existe pas, "storedData" sera "null"
             const storedData = localStorage.getItem("canapInfo");
             
             if (storedData) {

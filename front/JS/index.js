@@ -7,13 +7,13 @@ const div = document.getElementById("items")
 const AccceuilCarte = async () => {
 
 let url = "http://localhost:3000/api/products"
-console.log(url);
+
 
 fetch(url)
 .then(res => res.json())
 .then(data => {
 
-
+console.log(data);
 for ( let i = 0; i < data.length; i++){
 
 let html = `             

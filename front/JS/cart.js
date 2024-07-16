@@ -172,17 +172,17 @@ inputMiel.addEventListener("input", () => {
 
 // Fetch Post
 
+const url = "http://localhost:3000/api/products/order";
+console.log(url);
+
 const myForm = document.querySelector(".cart__order__form");
 
 btnCommander.addEventListener("click", (e) => {
   e.preventDefault();
-  
+
   const formData = new FormData(myForm);
-  
-  ; // Afficher le contenu de formData
-  const formValue =[...formData.entries()];
-  console.log(formValue);
-  
+  formData.append("products", JSON.stringify(canapParse.map(product => product.id)));
+
   fetch("http://localhost:3000/api/products/order", {
     method: "POST",
     body: formData
@@ -198,3 +198,38 @@ btnCommander.addEventListener("click", (e) => {
 });
 
 
+// btnCommander.addEventListener("click", (e) => {
+//   e.preventDefault();
+
+//   const formData = new FormData(myForm);
+//   const formValue = Object.fromEntries(formData.entries());
+//   console.log(formValue); // Afficher le contenu du JSON
+
+//   const order = {
+//     contact: {
+//       firstName: formValue.firstName,
+//       lastName: formValue.lastName,
+//       address: formValue.address,
+//       city: formValue.city,
+//       email: formValue.email,
+//     },
+//     products: canapParse.map(product => product.id),
+//   }
+
+//   fetch("http://localhost:3000/api/products/order", {
+//     method: "POST",
+//     headers: {
+//       "Content-type": "application/json; charset=UTF-8"
+//     },
+//     body: JSON.stringify(order)
+//   })
+//   .then(response => response.json())
+//   .then(data => {
+//     console.log(data);
+//     document.location.href = `confirmation.html?orderId=${data.orderId}`;
+//   })
+//   .catch(error => {
+//     console.error("Error:", error);
+
+//   });
+// });
